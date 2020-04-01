@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="style/style.css">
+    <title>Survey form</title>
+  </head>
+  <body>
+    <div>
+      <h1>freeCodeCamp survey form</h1>
+      <h3>thank you for taking the time to help us improve the platform</h3>
+
+    </div>
+
+    <main>
+
+      <form id="surveyForm" action="#">
+        <div class="question">
+          <label class="block" id="name" for="name">Name</label>
+          <input id="name" type="text" placeholder="Enter your name">
+        </div>
+        <div class="question">
+          <label class="block" id="email" for="email">Email</label>
+          <input id="email" type="text" placeholder="Enter your email">
+        </div>
+        <div class="question">
+          <label class="block" id="age" for="age">Age</label>
+          <input id="age" type="number" placeholder="Enter your age">
+        </div>
+        <div class="question">
+          <p>Which option best describes your current role</p>
+          <select name="role" id="dropdown">
+            <option value="Student">Student</option>
+            <option value="Select current role" disabled selected>Select current role</option>
+            <option value="Full time job">Full time job</option>
+            <option value="Full time learner">Full time learner</option>
+            <option value="Prefer not to say">Prefer not to say</option>
+            <option value="Other">Other</option>
+          </select>          
+        </div>
+        <div class="question">
+          <p>Would you recommend freeCodeCamp to a friend?</p>
+          <div class="block">
+            <input type="radio" id="definitely" name="recomendation" value="Definitely">
+            <label for="definitely">Definitely</label>
+          </div>
+          <div class="block">
+            <input type="radio" id="maybe" name="recomendation" value="Maybe">
+            <label for="maybe">Maybe</label>
+          </div>
+          <div class="block">
+            <input type="radio" id="notSure" name="recomendation" value="Not Sure">
+            <label for="notSure">Not Sure</label>
+          </div>
+        </div>
+        <div class="question">
+          <p>What would you like to see improved (check all that apply)</p>
+          <div class="question">
+            <input type="checkbox" name="front-end" id="frontEnd">
+            <label for="frontEnd">Front-end projects</label>
+          </div>
+          <div class="question">
+            <input type="checkbox" name="back-end" id="backEnd">
+            <label for="backEnd">Back-end projects</label>
+          </div>
+          <div class="question">
+            <input type="checkbox" name="Data Visualization" id="dataVis">
+            <label for="dataVis">Data Visualisation</label>
+          </div>
+          <div class="question">
+            <input type="checkbox" name="Chalenges" id="chalenges">
+            <label for="chalenges">Chalenges</label>
+          </div>
+          <div class="question">
+            <input type="checkbox" name="Gitter" id="gitter">
+            <label for="gitter">Gitter help rooms</label>
+          </div>
+          <div class="question">
+            <input type="checkbox" name="Meetups" id="meetups">
+            <label for="meetups">City meetups</label>
+          </div>
+          <div class="question">
+            <input type="checkbox" name="Wiki" id="wiki">
+            <label for="wiki">Wiki</label>
+          </div>
+          <div class="question">
+            <input type="checkbox" name="Forum" id="forum">
+            <label for="Forum">Forum</label>
+          </div>
+          <div class="question">
+            <input type="checkbox" name="Additional courses" id="additionalCourses">
+            <label for="Additional courses">Additional courses</label>
+          </div>
+        </div>
+        <div class="question">
+          <p>Any comments or sugestions?</p>
+          <textarea name="Comments" id="comments" placeholder="Enter your comment here" rows="5"></textarea>
+        </div>   
+        <input type="submit" value="Submit" id="submit">     
+      </form>
+    </main>
+  </body>
+</html>

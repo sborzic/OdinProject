@@ -1,0 +1,40 @@
+main {
+  height: 100%;
+  width: 100%;
+  background-color: rgb(238, 238, 238);
+  text-align: center;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  font-family: 'Open Sans';
+  line-height: 1.6;
+
+}
+
+.cover {
+  background-color: white;
+  position: relative;
+  margin: auto;
+  width: 98%;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+#coverPhoto {
+  display: block;
+  margin: 0 auto;
+  padding-bottom: 10px;
+}
+
+.timeline {
+  position: relative;
+  margin: auto;
+  width: 40%;
+  text-align: left;  
+}
+li {
+  margin: 15px auto;
+}
+
+blockquote {
+  margin: 40px auto;
+}

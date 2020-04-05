@@ -1,5 +1,6 @@
 body {
   margin: 0;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 
 #navbar {
@@ -87,3 +88,141 @@ li a i{
   display: flex;
   margin-left: 40px;
 }
+
+.search-results {
+  width: 80%;
+  margin: 0 auto;
+  display: flex;
+}
+
+#results-wrapper{
+  width: 60%;
+  float: left;
+  height: 100%;
+  padding: 20px;
+}
+
+#side-overview {
+  float: right;
+  height: 100%;
+  width: 40%;
+}
+
+#result-list {
+  list-style: none;
+  padding: 0;
+  width: 85%;
+}
+
+#results-wrapper>span {
+  color: #70757a;
+}
+
+#result-list li {
+  margin: 25px 0;
+}
+
+#result-list li h3 {
+  margin-top: 4px;
+  margin-bottom: 6px;
+}
+
+#result-list li a {
+  text-decoration: none;
+}
+
+#recent-news-wrapper {
+  width: 90%;
+}
+
+#news-table {
+  display: flex;
+  border: 1px solid #dfe1e5;
+  border-radius: 8px;
+  flex-direction: column;
+}
+
+.news-row {
+  display: flex;
+  padding: 20px;
+}
+ #middle-row {
+  border-top: 1px solid #dfe1e5;
+  border-bottom: 1px solid #dfe1e5;
+ }
+
+
+.row-link {
+  display: flex;
+  width: 100%;
+}
+
+.row-title {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  padding-left: 20px;
+}
+
+#related-searches {
+  list-style: none;
+  padding: 0;
+  color: blue;
+  font-weight: bolder;
+}
+
+#related-searches i {
+  margin-right: 10px;
+}
+
+#side-overview{
+  height: 100%;
+  margin-top: 40px;
+  border: 1px solid #dfe1e5;
+  border-radius: 8px;
+}
+
+#side-header {
+  width: 100 %;
+  border-bottom: 1px solid #dfe1e5;
+  padding: 20px 15px;
+}
+
+#share-icon {
+  float: right;
+}
+
+#side-short-desc {
+  margin-top: 20px;
+}
+
+#side-content {
+  padding: 20px 15px;
+}
+
+#side-list {
+  list-style: none;
+  padding: 0;
+}
+
+#side-list li {
+  line-height: 2em;
+}
+
+#side-list a {
+  text-decoration: none;
+}
+
+#other-searches {
+  display: flex;
+  justify-content: space-around;
+}
+
+.other-search-link {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+  height: 100%;
+}
+

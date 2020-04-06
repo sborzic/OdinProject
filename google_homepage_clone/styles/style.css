@@ -1,6 +1,6 @@
 body {
   margin: 0;
-  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  font-family: arial,sans-serif-light,sans-serif;
 }
 
 #navbar {
@@ -183,9 +183,12 @@ li a i{
 }
 
 #side-header {
-  width: 100 %;
   border-bottom: 1px solid #dfe1e5;
   padding: 20px 15px;
+}
+
+#side-header span {
+  font-size: 30px;
 }
 
 #share-icon {
@@ -205,12 +208,17 @@ li a i{
   padding: 0;
 }
 
+
 #side-list li {
   line-height: 2em;
 }
 
 #side-list a {
   text-decoration: none;
+}
+
+#side-list a:hover {
+  text-decoration: underline;
 }
 
 #other-searches {
@@ -224,5 +232,9 @@ li a i{
   align-items: center;
   flex-direction: column;
   height: 100%;
+}
+
+h1, h2, h3 {
+  color: rgb(26, 13, 171);
 }
 

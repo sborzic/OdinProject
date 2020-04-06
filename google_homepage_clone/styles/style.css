@@ -238,3 +238,32 @@ h1, h2, h3 {
   color: rgb(26, 13, 171);
 }
 
+#result-pages {
+  margin: 30px auto 30px;
+  text-align: center;
+  font-size: 14px;
+  border-collapse: collapse;
+}
+
+#first-res {
+  padding: 0;
+}
+
+.result-letter-first {
+  display: block;
+  background: url(../images/nav_logo299_hr.webp);
+  background-position: -24px 0;
+  background-size: 167px;
+  width: 28px;
+  height: 40px;
+}
+
+.result-letter {
+  display: block;
+  background: url(../images/nav_logo299_hr.webp);
+  background-position: -74px 0;
+  background-size: 167px;
+  width: 20px;
+  height: 40px;
+  
+}

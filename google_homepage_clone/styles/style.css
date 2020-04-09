@@ -249,6 +249,10 @@ h1, h2, h3 {
   padding: 0;
 }
 
+tr {
+  vertical-align: top;
+}
+
 .result-letter-first {
   display: block;
   background: url(../images/nav_logo299_hr.webp);
@@ -264,6 +268,23 @@ h1, h2, h3 {
   background-position: -74px 0;
   background-size: 167px;
   width: 20px;
+  height: 40px;  
+}
+
+.result-letter-last {
+  display: block;
+  background: url(../images/nav_logo299_hr.webp);
+  background-position: -96px 0;
+  background-size: 167px;
+  width: 71px;
   height: 40px;
-  
+}
+
+#next-result-page {
+  margin-left: 50px;
+}
+
+table a {
+  text-decoration: none;
+  color: #4285f4;
 }

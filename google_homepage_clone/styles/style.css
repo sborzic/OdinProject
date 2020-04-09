@@ -288,3 +288,48 @@ table a {
   text-decoration: none;
   color: #4285f4;
 }
+
+#footer {
+  display: grid;
+  grid-template-columns: 1fr 5fr;
+  grid-template-rows: 1fr 1fr;
+  height: 50px;
+  background: #f2f2f2;
+  color: rgba(0,0,0,.54);
+  border: 1px solid #e4e4e4;
+  padding: 10px 0;
+  font-size: 14px;
+}
+
+#country {
+  grid-column: 1/2;
+  grid-row: 1/2;
+  justify-self: end;
+  border-right: 1px solid #e4e4e4;
+  padding-right: 10px;
+  margin-bottom: 10px;
+}
+
+#location {
+  padding-left: 10px;
+}
+
+#location a {
+  text-decoration: none;
+  color: rgba(0,0,0,.54);
+}
+
+#help {
+  grid-column: span 3;
+  grid-row: 2/3;
+  padding-left: 185px;
+  padding-top: 10px;
+  border-top: 1px solid #e4e4e4;
+}
+
+#help a {
+  text-decoration: none;
+  color: rgba(0,0,0,.54);
+  padding-right: 20px;
+
+}

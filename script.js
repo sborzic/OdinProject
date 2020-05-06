@@ -185,3 +185,118 @@
 //   return result;
 // }
 /////////////////////////////////////////////////////////////
+///https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Building_blocks/Looping_code
+// for (i=10; i>=0; i--) {
+//   countDown(i);
+// }
+
+// function countDown (number){
+//   const para = document.createElement('p');
+//   para.textContent = number;
+//   output.appendChild(para);
+// }
+
+// let i = 0;
+// do {
+//   if (people[i] == 'Phil' || people[i] == 'Lola') {
+//     refused.textContent += people[i] + ', ';
+//   }
+//   else {
+//    admitted.textContent += people[i] + ', ';
+//   }
+//   i++;
+// }
+// while (i<people.length);
+
+// refused.textContent = refused.textContent.slice(0,refused.textContent.length-2) + '.';
+// admitted.textContent = admitted.textContent.slice(0,admitted.textContent.length-2) + '.';
+
+/////////////////////////////////////////////////
+//https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Building_blocks/Test_your_skills:_Loops
+
+// let list = document.querySelector('ul');
+// let myArray = ['tomatoes', 'chick peas', 'onions', 'rice', 'black beans'];
+
+// myArray.forEach(function(item){
+//   let li = document.createElement('li');
+//   li.textContent = item;
+//   list.appendChild(li);
+//   }
+// )
+
+// let phonebook = [
+//   { name : 'Chris', number : '1549' },
+//   { name : 'Li Kang', number : '9634' },
+//   { name : 'Anne', number : '9065' },
+//   { name : 'Francesca', number : '3001' },
+//   { name : 'Mustafa', number : '6888' },
+//   { name : 'Tina', number : '4312' },
+//   { name : 'Bert', number : '7780' },
+//   { name : 'Jada', number : '2282' },
+// ]
+// let name = prompt('Please enter the name you are searching for');
+// let para = document.createElement('p');
+
+// for (i=0; i<phonebook.length; i++) {
+//   let currentItem = phonebook[i];
+//   if (name == currentItem.name) {
+//     para.textContent = `${currentItem.name} - tel.: ${currentItem.number}`
+//     break;
+//   } else {
+//     para.textContent = 'Name not found';
+//   }
+// }
+// document.body.appendChild(para);
+
+// function isPrime(number){
+//   if (number%2 == 0){
+//   return false;
+//   } else {
+//     return true};
+// }
+
+// i = 500;
+// while(i>0) {
+//   if (isPrime(i)) {
+//     let para = document.createElement('p');
+//     para.textContent = i;
+//     document.body.appendChild(para);
+//   }
+//   i--;
+// }
+///////////////////////////////////////
+//https://javascript.info/while-for#tasks
+// inuput number greater than 100
+
+// let num = prompt('Enter number greater than 100');
+// while(num<101){
+//   num = prompt('Enter number greater than 100')
+// }
+////////////////////////////////////////
+//https://www.theodinproject.com/lessons/dom-manipulation
+
+// let para = document.createElement('p');
+// document.body.appendChild(para);
+// para.textContent = 'i\'m red';
+// para.style.color = 'red';
+
+// let head = document.createElement('h3');
+// document.body.appendChild(head);
+// head.textContent = 'i\'m blue'
+// head.style.color = 'blue';
+
+// let container = document.createElement('div');
+// document.body.appendChild(container);
+// container.style.border = '1px solid black';
+// container.style.background = 'pink';
+
+// let headOne = document.createElement('h1');
+// headOne.textContent = 'i\'m blue';
+// container.appendChild(headOne);
+// let para2 = document.createElement('p')
+// para2.textContent = 'me too';
+// container.appendChild(para2);
+let btn = document.querySelector('#btn');
+btn.addEventListener('click', function(e){
+  console.log(e.target.style.background = 'blue');
+});

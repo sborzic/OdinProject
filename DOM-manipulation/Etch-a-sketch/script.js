@@ -6,7 +6,27 @@ startGame.addEventListener('click', createGrid);
 let reset = document.getElementById('reset');
 reset.addEventListener('click', resetGame)
 
-// createGrid();
+
+let colorSliders = Array.from(document.getElementsByClassName('color-slider'));
+colorSliders.forEach(changeColors);
+
+let squareColor = 'black'
+
+function changeColors(slider){
+  slider.addEventListener('input', function(){
+    let red = Number(document.getElementById('red').value);
+    document.getElementById('red-value').textContent = red;
+
+    let green = Number(document.getElementById('green').value);
+    document.getElementById('green-value').textContent = green;
+
+    let blue = Number(document.getElementById('blue').value);
+    document.getElementById('blue-value').textContent = blue;
+
+    squareColor = `rgb(${red}, ${green}, ${blue})`;
+    addMouseOver();
+  })
+}
 
 function createGrid(){
   resetGame();
@@ -40,7 +60,7 @@ function generateSquares(height, length){
     square.style.width = sqWidth;
     square.style.boxSizing = 'border-box';
     square.classList.add('square');
-    square.style.border = `1px solid black`;
+    // square.style.border = `1px solid black`;
     mainContainer.appendChild(square);
   }  
 }
@@ -54,10 +74,22 @@ function addGrid(height, length){
 function addMouseOver(){
   let squares = Array.from(document.getElementsByClassName('square'));
   for(let i = 0; i<squares.length; i++) {
-    squares[i].addEventListener('mouseover', function(){
-      squares[i].classList.add('hovered');
+    squares[i].addEventListener('mouseover', function(e){
+      // let background = e.target.attributes['class'].background;
+      // console.log(background);
+      squares[i].style.backgroundColor = squareColor;
     })
   }
+}
+
+function resetColors(){
+  colorSliders.forEach(function(slider){
+    slider.value = 0;
+  })
+  Array.from(document.getElementsByClassName('color-value')).forEach(function(color){
+    color.textContent = 0;
+  })
+  squareColor = 'black';
 }
 
 function resetGame(){
@@ -66,4 +98,5 @@ function resetGame(){
     mainContainer.removeChild(square);
     square = mainContainer.lastElementChild;
   }
+  resetColors();
 }

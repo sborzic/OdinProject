@@ -9,13 +9,30 @@
 <body>
   <div class="controls">
     <form action="">
-      <label for="">Enter the number of rows</label>
+      <label for="">Number of rows</label>
       <input id="rows" type="number">
-      <label for="">Enter the number of columns</label>
+      <label for="">Number of columns</label>
       <input id="columns" type="number">
       <button type="button" id="start">Start</button>
       <button type="button" id="reset">Reset</button>
-    </form>    
+    </form> 
+    <div id="sliders">
+      <div class="slidecontainer">
+        <div class="RGBname">Red</div>
+        <input class="color-slider" id="red" type="range" min="0" max="255" value="0"> 
+        <div id="red-value" class="color-value">0</div>
+      </div>  
+      <div class="slidecontainer">
+        <div class="RGBname">Green</div>
+        <input class="color-slider" id="green" type="range" min="0" max="255" value="0"> 
+        <div id="green-value" class="color-value">0</div>
+      </div>  
+      <div class="slidecontainer">
+        <div class="RGBname">Blue</div>
+        <input class="color-slider" id="blue" type="range" min="0" max="255" value="0"> 
+        <div id="blue-value" class="color-value">0</div>
+      </div>  
+    </div> 
   </div>
 
   <div id="main"></div>

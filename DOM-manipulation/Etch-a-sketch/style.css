@@ -1,8 +1,17 @@
+body {
+  display: grid;
+  grid-template-columns: 1fr 7fr;
+}
+
 #main {
   height: 500px;
   width: 1000px;
   margin: 100px auto;
   border: 5px solid blue;
+}
+
+.square {
+  background-color: white;
 }
 
 .controls {
@@ -12,4 +21,32 @@
 
 .hovered{
   background: black;
+}
+
+label {
+  display: block;
+}
+
+#rows #columns {
+  width: 50px;
+}
+
+.slidecontainer {
+  display: flex;
+  align-content: center;
+  margin: 5px 0;
+}
+
+.color-value {
+  height: 35px;
+  width: 55px;
+  border: 1px solid black;
+  margin-left: 10px;
+}
+
+.RGBname {
+  display: flex;
+  align-items: center;
+  width: 50px;
+  margin-right: 10px;
 }

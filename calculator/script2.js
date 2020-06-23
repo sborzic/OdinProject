@@ -7,8 +7,9 @@ let storedInput=[];
 numbers.forEach(number=>{
   number.addEventListener('click', function() {
     input+=number.textContent;
-    displayedValue+=input;
+    displayedValue+=number.textContent;
     toggleOperators();
+    displaySelected();
   })
 });
 
@@ -18,12 +19,20 @@ operators.forEach(operator => {
     storedInput.push(input);
     input=operator.textContent;
     storedInput.push(input);
-    displayedValue+=input;
+    displayedValue+=operator.textContent;
     toggleOperators();
     input='';
+    displaySelected()
   })
    
 });
+
+function displaySelected(value){
+  let display = document.getElementById('display');
+  display.textContent = displayedValue;
+}
+
+
 
 function toggleOperators(){
   let comma = Array.from(document.getElementsByClassName('comma'));
@@ -37,5 +46,3 @@ function toggleOperators(){
     }
   })
 }
-
-

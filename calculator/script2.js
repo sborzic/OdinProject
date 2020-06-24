@@ -8,10 +8,9 @@ let storedInput=[];
 numbers.forEach(number=>{
   number.addEventListener('click', function() {
     input+=number.textContent;
-    console.log(input);
     displayedValue+=number.textContent;
     toggleOperators(number);
-    displaySelected();
+    displaySelected(displayedValue);;
   })
 });
 
@@ -25,15 +24,16 @@ operators.forEach(operator => {
     displayedValue+=operator.textContent;
     toggleOperators(operator);
     input='';
-    displaySelected()
+    displaySelected(displayedValue);
   })   
 });
 
-equals.addEventListener('click', calculate());
-
+equals.addEventListener('click', calculate);
 
 function calculate(){
-  storedInput.push(input);
+  if (input != ''){
+    storedInput.push(input)
+  };
 
   //solve multiplication and division
   for(let i=0; i<storedInput.length; i++){
@@ -42,10 +42,12 @@ function calculate(){
 
     if(storedInput[i]=='*'){
       newValue = before*after;
-      storedInput.splice(before, 3, newValue)
+      storedInput.splice(i-1, 3, newValue)
+      i=0; //restarts the loop because length and iterating position has changed
     }else if(storedInput[i]=='/'){
       newValue = before/after;
-      storedInput.splice(before, 3, newValue)
+      storedInput.splice(i-1, 3, newValue)
+      i=0; //restarts the loop because length and iterating position has changed
     }
   }
 
@@ -56,19 +58,22 @@ function calculate(){
 
     if(storedInput[i]=='+'){
       newValue = before+after;
-      storedInput.splice(before, 3, newValue)
+      storedInput.splice(i-1, 3, newValue)
+      i=0; //restarts the loop because length and iterating position has changed
     }else if(storedInput[i]=='-'){
       newValue = before-after;
-      storedInput.splice(before, 3, newValue)
+      storedInput.splice(i-1, 3, newValue)
+      i=0; //restarts the loop because length and iterating position has changed
     }
   }
+  displaySelected(storedInput[0]);
 }
 
 
 
 function displaySelected(value){
   let display = document.getElementById('display');
-  display.textContent = displayedValue;
+  display.textContent = value;
 }
 
 function toggleOperators(button){

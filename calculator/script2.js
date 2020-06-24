@@ -1,6 +1,7 @@
 let numbers = Array.from(document.getElementsByClassName('numbers'));
 let operators = Array.from(document.getElementsByClassName('operator'))
-let equals = document.querySelector('.equals');
+let equals = document.querySelector('#equals');
+let clear = document.querySelector('#clear');
 let input='';
 let displayedValue='';
 let storedInput=[];
@@ -69,6 +70,8 @@ function calculate(){
   displaySelected(storedInput[0]);
 }
 
+clear.addEventListener('click', reset);
+
 
 
 function displaySelected(value){
@@ -77,7 +80,7 @@ function displaySelected(value){
 }
 
 function toggleOperators(button){
-  let comma = Array.from(document.getElementsByClassName('comma'));
+  let comma = Array.from(document.querySelector('#comma'));
   let joinedButtons = comma.concat(operators); //joined comma and operators for iterating and disabling
   let buttonList = ['+','-','*','/','.'];
 
@@ -86,4 +89,11 @@ function toggleOperators(button){
   }else{
     joinedButtons.forEach(el => el.disabled=false)
   }
+}
+
+function reset(){
+  input='';
+  displayedValue='';
+  storedInput=[];
+  displaySelected(''); //clear display
 }

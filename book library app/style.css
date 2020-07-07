@@ -3,6 +3,8 @@
   height: 500px;
   margin: 20px auto;
   border: 1px solid black;
+  display: flex;
+  justify-content: space-evenly;
 }
 #navbar{
   height: 50px;
@@ -30,4 +32,19 @@ form>input[type=checkbox]{
 
 form button {
   display: block;
+}
+
+.book{
+  width: 25%;
+  padding: 5px;
+}
+
+.book-img {
+  width: 100%;
+  height: 250px;  
+}
+
+img {
+  width: auto;
+  height: 100%;
 }

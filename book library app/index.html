@@ -12,6 +12,23 @@
   </div>
   <div id="wrapper">
     <div id="book-list">
+        <div class="book">
+          <div class="book-img">
+            <img src="https://i.pinimg.com/originals/1c/c4/b6/1cc4b62b78d0f83b7f8b361771dd9cc2.jpg" alt="">
+          </div>
+          <p>author</p>
+          <p>title</p>
+          <p>pages</p>
+          <p>status</p>
+        </div>
+        <div class="book">
+          <div class="book-img">
+          </div>
+          <p>author</p>
+          <p>title</p>
+          <p>pages</p>
+          <p>status</p>
+        </div>
     </div>
     
     <form action="">
@@ -24,8 +41,12 @@
       <label for="">Number of pages</label>
       <input type="text" name="pages" id="pages" placeholder="Number of pages">
 
+      <label for="">Book cover</label>
+      <input type="text" name="cover" id="cover" placeholder="Enter the image source">
+
       <label for="">Have you read the book?</label>
       <input type="checkbox" name="readStatus" id="read-status">
+
       
       <button type="button" id="add-book">Add</button>
     </form>

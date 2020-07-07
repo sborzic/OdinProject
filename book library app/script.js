@@ -1,11 +1,4 @@
 let myLibrary = [
-  { //default data
-    image: 'https://i.pinimg.com/originals/1c/c4/b6/1cc4b62b78d0f83b7f8b361771dd9cc2.jpg',
-    author: 'J.R.R. Tolkien',
-    title: 'Lord of the Rings',
-    pages: 350,
-    isRead: true
-  }
 ];
 
 function Book (author, title, pages, isRead, image = 'https://images.unsplash.com/photo-1537495329792-41ae41ad3bf0?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=934&q=80'){
@@ -29,6 +22,9 @@ function addBook(){
 
   let book = new Book(author, title, pages, isRead);
   myLibrary.push(book);
+
+  clearBooks();
+  render();
 }
 
 document.getElementById('add-book').addEventListener('click', addBook);
@@ -36,18 +32,56 @@ document.getElementById('add-book').addEventListener('click', addBook);
 function render(){
 
   //loop throught array
+  myLibrary.forEach(book => {
+
+    //create elements for book data
+    let bookCard = document.createElement('div');
+    let imageContainer = document.createElement('div');
+    let bookImage = document.createElement('img');
+    let bookAuthor = document.createElement('h4');
+    let bookTitle = document.createElement('h2');
+    let bookPages = document.createElement('h5');
+    let bookStatus = document.createElement('h5');
+    
+    //add elements to DOM
+    let bookList = document.getElementById('book-list');
+
+    bookList.appendChild(bookCard);
+    bookCard.append(imageContainer, bookAuthor, bookTitle, bookPages, bookStatus);
+    imageContainer.appendChild(bookImage);
+
+    //add data
+    bookImage.src = book.image;
+    bookAuthor.innerHTML = book.author;
+    bookTitle.innerHTML = book.title;
+    bookPages.innerHTML = book.pages;
+    if(book.isRead){
+      bookStatus.innerHTML = 'You\'ve read it'
+    } else{
+      bookStatus.innerHTML = 'Not read'
+    }
+
+    //add style
+    bookCard.classList.add('book');
+    imageContainer.classList.add('image-container')
+    bookImage.classList.add('book-img');
 
 
-  //create div for each book
 
-  //add style
-
-  //add data
-
-  //add style for data
+  })
 
   //add buttons
 
   //style buttons
   
+}
+
+//clear DOM for rendering with new book
+function clearBooks(){
+  let list = document.getElementById('book-list');
+  let bookCard = list.lastElementChild;
+  while(bookCard){
+    list.removeChild(bookCard);
+    bookCard = list.lastElementChild;
+  }
 }

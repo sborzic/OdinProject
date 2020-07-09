@@ -31,11 +31,12 @@ document.getElementById('add-book').addEventListener('click', addBook);
 
 function render(){
 
-  //loop throught array
-  myLibrary.forEach(book => {
+  //loop through array
+  myLibrary.forEach((book, index) => {
 
     //create elements for book data
     let bookCard = document.createElement('div');
+    let deleteButton = document.createElement('div');
     let imageContainer = document.createElement('div');
     let bookImage = document.createElement('img');
     let bookAuthor = document.createElement('h4');
@@ -47,7 +48,8 @@ function render(){
     let bookList = document.getElementById('book-list');
 
     bookList.appendChild(bookCard);
-    bookCard.append(imageContainer, bookAuthor, bookTitle, bookPages, bookStatus);
+    bookCard.setAttribute('data-index', index);
+    bookCard.append(deleteButton, imageContainer, bookAuthor, bookTitle, bookPages, bookStatus);
     imageContainer.appendChild(bookImage);
 
     //add data
@@ -55,6 +57,7 @@ function render(){
     bookAuthor.innerHTML = book.author;
     bookTitle.innerHTML = book.title;
     bookPages.innerHTML = book.pages;
+    deleteButton.innerHTML = 'x';
     if(book.isRead){
       bookStatus.innerHTML = 'You\'ve read it'
     } else{
@@ -65,16 +68,30 @@ function render(){
     bookCard.classList.add('book');
     imageContainer.classList.add('image-container')
     bookImage.classList.add('book-img');
+    deleteButton.classList.add('delete-button');
 
 
-
+    
   })
+  
+  let deleteButtons = Array.from(document.querySelectorAll('.delete-button'));
+  deleteButtons.forEach((button)=>{
+    button.addEventListener('click', ()=>{
+      let index = Number(event.target.parentNode.getAttribute('data-index'));
+      console.log(index);
+      myLibrary.splice(index,1);
+      clearBooks();
+      render();
+    })
+  })
+  //add button listeners
 
-  //add buttons
+
 
   //style buttons
   
 }
+
 
 //clear DOM for rendering with new book
 function clearBooks(){
@@ -85,3 +102,4 @@ function clearBooks(){
     bookCard = list.lastElementChild;
   }
 }
+

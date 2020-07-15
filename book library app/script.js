@@ -9,17 +9,14 @@ function Book (author, title, pages, isRead, image = 'https://images.unsplash.co
   this.isRead = isRead;
 }
 
+document.getElementById('add-book').addEventListener('click', addBook);
+
 function addBook(){
   let author = document.getElementById('author').value;
   let title = document.getElementById('title').value;
   let pages = Number(document.getElementById('pages').value);
-  let isRead;
-  if(document.getElementById('read-status').checked){
-      isRead = true;
-    } else{
-      isRead = false;
-    }
-
+  let isRead = document.getElementById('read-status').checked;
+  
   let book = new Book(author, title, pages, isRead);
   myLibrary.push(book);
 
@@ -27,14 +24,11 @@ function addBook(){
   render();
 }
 
-document.getElementById('add-book').addEventListener('click', addBook);
 
 function render(){
-
-  //loop through array
   myLibrary.forEach((book, index) => {
 
-    //create elements for book data
+    //create DOM elements for book data
     let bookCard = document.createElement('div');
     let deleteButton = document.createElement('div');
     let imageContainer = document.createElement('div');
@@ -59,9 +53,9 @@ function render(){
     bookPages.innerHTML = book.pages;
     deleteButton.innerHTML = 'x';
     if(book.isRead){
-      bookStatus.innerHTML = 'You\'ve read it'
+      bookStatus.innerHTML = 'You\'ve read it';
     } else{
-      bookStatus.innerHTML = 'Not read'
+      bookStatus.innerHTML = 'Not read';
     }
 
     //add style
@@ -69,27 +63,19 @@ function render(){
     imageContainer.classList.add('image-container')
     bookImage.classList.add('book-img');
     deleteButton.classList.add('delete-button');
-
-
     
   })
   
+  //add event listeners for delete buttons
   let deleteButtons = Array.from(document.querySelectorAll('.delete-button'));
   deleteButtons.forEach((button)=>{
     button.addEventListener('click', ()=>{
       let index = Number(event.target.parentNode.getAttribute('data-index'));
-      console.log(index);
       myLibrary.splice(index,1);
       clearBooks();
       render();
     })
   })
-  //add button listeners
-
-
-
-  //style buttons
-  
 }
 
 
@@ -103,3 +89,15 @@ function clearBooks(){
   }
 }
 
+//show form
+  let newBookButton = document.getElementById('show-form');
+  newBookButton.addEventListener('click', ()=>{
+
+    let form = document.getElementById('form');
+    if(form.style.display === 'flex' ){
+      form.style.display = 'none'
+    } else{
+      form.style.display = 'flex'
+    }
+    event.stopImmediatePropagation();
+  });

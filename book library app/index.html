@@ -8,32 +8,39 @@
 </head>
 <body>
   <div id="navbar">
+     <div id="add-book-wrapper">
+       <div id="show-form">
+         <span>New Book</span>
+       </div>
+       
+       <form id="form" action="">
+         <label for="">Author</label>
+         <input type="text" name="author" id="author" placeholder="Enter the authors name">
      
+         <label for="">Title</label>
+         <input type="text" name="title" id="title" placeholder="Enter the book title">
+     
+         <label for="">Number of pages</label>
+         <input type="text" name="pages" id="pages" placeholder="Number of pages">
+     
+         <label for="">Book cover</label>
+         <input type="text" name="cover" id="cover" placeholder="Enter the image source">
+        
+         <div>
+           <label for="">Have you read the book?</label>
+           <input type="checkbox" name="readStatus" id="read-status">     
+         </div>
+         <div id="add-book">
+          <span>Add</span>
+         </div>
+       </form>
+     </div>
   </div>
   <div id="wrapper">
     <div id="book-list">
         
     </div>
     
-    <form action="">
-      <label for="">Author</label>
-      <input type="text" name="author" id="author" placeholder="Enter the authors name">
-
-      <label for="">Title</label>
-      <input type="text" name="title" id="title" placeholder="Enter the book title">
-
-      <label for="">Number of pages</label>
-      <input type="text" name="pages" id="pages" placeholder="Number of pages">
-
-      <label for="">Book cover</label>
-      <input type="text" name="cover" id="cover" placeholder="Enter the image source">
-
-      <label for="">Have you read the book?</label>
-      <input type="checkbox" name="readStatus" id="read-status">
-
-      
-      <button type="button" id="add-book">Add</button>
-    </form>
     
 
   </div>

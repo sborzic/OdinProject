@@ -6,30 +6,68 @@
   justify-content: space-evenly;
 }
 #navbar{
+  display: grid;
+  grid-template-columns: 2fr 1fr;
   height: 50px;
   width: 100%;
   margin-bottom: 15px;
-  background-color: cadetblue;
+  background-color: #5f9ea0;
+}
+
+#show-form{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50px;
+  width: 250px;
+  margin: 0;
+  padding: 0px 10px;
+  box-shadow: inset 0 0 10px #000000
+}
+
+#show-form:hover{
+  background: #358487;
+  transition-property: background;
+  transition-duration: 500ms;
+}
+
+#add-book-wrapper{
+  grid-column-start: 2;
+  grid-column-end: 3;
+  justify-self: center;  
+  box-shadow: darkgray;
 }
 
 #wrapper{
   display: flex;
 }
 
-form{
-  margin: 20px auto;
+#form{
+  display: none;
+  width: 250px;
+  background: #358487;
+  padding: 20px 10px;
+  justify-content: center;
+  flex-direction: column;
+  z-index: 3;
+  position: absolute;
 }
+
 form>input{
   display: block;
   height: 1.5em;
   margin-bottom: 10px;
+  background: rgb(226, 226, 226);
+  border-radius: 10px;
+  border: none;
+  margin-top: 5px;
 }
 
 form>input[type=checkbox]{
   display: inline;
 }
 
-form button {
+form>button {
   display: block;
 }
 
@@ -41,9 +79,10 @@ form button {
   position: absolute;
   top: -10px;
   right: -10px;
-  z-index: 9;
+  z-index: 2;
   font-size: 1.8em;
   text-align: center; 
+  cursor: pointer;
 }
 
 .book{
@@ -62,4 +101,23 @@ form button {
 .book-img {
   width: 100%;
   height: 100%;
+}
+
+#add-book{
+  display: flex;
+  width: 30%;
+  background: #5fa061;
+  height: 30px;
+  margin: 15px auto 0 auto;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+#add-book:hover{
+  transition-property: background;
+  transition-duration: 200ms;
+  background: #605fa0;
+  transform: scale(1.1);
 }

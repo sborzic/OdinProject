@@ -1,3 +1,7 @@
+body{
+  background-color: whitesmoke;
+}
+
 #book-list{
   width: 70%;
   margin: 20px auto;
@@ -73,7 +77,7 @@ form>button {
 }
 
 .delete-button {
-  background: crimson;
+  background: #a05f7e;
   border-radius: 25px;
   width: 40px;
   height: 40px;
@@ -104,12 +108,12 @@ form>button {
   height: 400px;
   padding: 5px;
   margin-top: 15px;
+  border: 1px solid #605fa0;
+  border-radius: 5px;
 }
 
 .image-container {
-  width: 95%;
   height: 200px; 
-  border-bottom: #605fa0 1px solid; 
 }
 
 .book-img {

@@ -43,27 +43,31 @@ function render(){
 
     bookList.appendChild(bookCard);
     bookCard.setAttribute('data-index', index);
-    bookCard.append(deleteButton, imageContainer, bookAuthor, bookTitle, bookPages, bookStatus);
+    bookCard.append(deleteButton, imageContainer, bookTitle, bookAuthor, bookPages, bookStatus);
     imageContainer.appendChild(bookImage);
 
     //add data
     bookImage.src = book.image;
-    bookAuthor.innerHTML = book.author;
+    bookAuthor.innerHTML = `Written by: ${book.author}`;
     bookTitle.innerHTML = book.title;
-    bookPages.innerHTML = book.pages;
+    bookPages.innerHTML = `${book.pages} pages`;
     deleteButton.innerHTML = 'x';
     if(book.isRead){
       bookStatus.innerHTML = 'You\'ve read it';
+      //styled here for initial color
+      bookStatus.style.background = '#5fa061'
     } else{
       bookStatus.innerHTML = 'Not read';
+      //styled here for initial color
+      bookStatus.style.background = 'orange'
     }
 
     //add style
     bookCard.classList.add('book');
     imageContainer.classList.add('image-container')
     bookImage.classList.add('book-img');
-    deleteButton.classList.add('delete-button');
-    
+    deleteButton.classList.add('delete-button');  
+    bookStatus.classList.add('read-status');
   })
   
   //add event listeners for delete buttons
@@ -74,6 +78,24 @@ function render(){
       myLibrary.splice(index,1);
       clearBooks();
       render();
+    })
+  })
+
+  //add event listener for read status
+  let readStatus = Array.from(document.getElementsByClassName('read-status'));
+  readStatus.forEach((element)=>{
+    element.addEventListener('click', ()=>{
+      let index = Number(event.target.parentNode.getAttribute('data-index'));
+      let status = myLibrary[index].isRead;
+      if(status){
+        myLibrary[index].isRead = false;
+        element.style.background = 'orange';
+        element.innerHTML = 'Not read';
+      } else{
+        myLibrary[index].isRead = true;
+        element.style.background = '#5fa061';
+        element.innerHTML = 'You\'ve read it';
+      }
     })
   })
 }
@@ -99,5 +121,4 @@ function clearBooks(){
     } else{
       form.style.display = 'flex'
     }
-    event.stopImmediatePropagation();
   });

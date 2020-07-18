@@ -106,10 +106,11 @@ form>button {
   position: relative;
   width: 175px;
   height: 400px;
-  padding: 5px;
+  padding: 2px;
   margin-top: 15px;
   border: 1px solid #605fa0;
   border-radius: 5px;
+  background: #358487;
 }
 
 .image-container {

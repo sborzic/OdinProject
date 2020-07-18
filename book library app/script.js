@@ -1,5 +1,4 @@
-let myLibrary = [
-];
+let myLibrary = [];
 
 function Book (author, title, pages, isRead, image = 'https://images.unsplash.com/photo-1537495329792-41ae41ad3bf0?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=934&q=80'){
   this.image = image
@@ -7,6 +6,13 @@ function Book (author, title, pages, isRead, image = 'https://images.unsplash.co
   this.author = author;
   this.pages = pages;
   this.isRead = isRead;
+  this.changeStatus = function(){
+    if(isRead){
+      this.isRead = false;
+    }else{
+      this.isRead = true;
+    }
+  }
 }
 
 document.getElementById('add-book').addEventListener('click', addBook);
@@ -27,7 +33,6 @@ function addBook(){
 
 function render(){
   myLibrary.forEach((book, index) => {
-
     //create DOM elements for book data
     let bookCard = document.createElement('div');
     let deleteButton = document.createElement('div');
@@ -59,7 +64,7 @@ function render(){
     } else{
       bookStatus.innerHTML = 'Not read';
       //styled here for initial color
-      bookStatus.style.background = 'orange'
+      bookStatus.style.background = '#a05f7e'
     }
 
     //add style
@@ -68,36 +73,42 @@ function render(){
     bookImage.classList.add('book-img');
     deleteButton.classList.add('delete-button');  
     bookStatus.classList.add('read-status');
-  })
-  
-  //add event listeners for delete buttons
-  let deleteButtons = Array.from(document.querySelectorAll('.delete-button'));
-  deleteButtons.forEach((button)=>{
-    button.addEventListener('click', ()=>{
+
+    //add listener for delete
+    deleteButton.addEventListener('click', ()=>{
       let index = Number(event.target.parentNode.getAttribute('data-index'));
       myLibrary.splice(index,1);
       clearBooks();
       render();
     })
-  })
 
-  //add event listener for read status
-  let readStatus = Array.from(document.getElementsByClassName('read-status'));
-  readStatus.forEach((element)=>{
-    element.addEventListener('click', ()=>{
+    //add listener for status change
+    bookStatus.addEventListener('click', ()=>{
       let index = Number(event.target.parentNode.getAttribute('data-index'));
-      let status = myLibrary[index].isRead;
-      if(status){
-        myLibrary[index].isRead = false;
-        element.style.background = 'orange';
-        element.innerHTML = 'Not read';
-      } else{
-        myLibrary[index].isRead = true;
-        element.style.background = '#5fa061';
-        element.innerHTML = 'You\'ve read it';
-      }
+      myLibrary[index].changeStatus();
+      clearBooks();
+      render();
     })
-  })
+  });
+  
+  // let readStatus = Array.from(document.getElementsByClassName('read-status'));
+  //   readStatus.forEach((element)=>{
+  //     element.addEventListener('click', ()=>{
+  //       let index = Number(event.target.parentNode.getAttribute('data-index'));
+  //       let status = myLibrary[index].isRead;
+  //       if(status){
+  //         myLibrary[index].changeStatus();
+  //         // myLibrary[index].isRead = false;
+  //         element.style.background = '#a05f7e';
+  //         element.innerHTML = 'Not read';
+  //       } else{
+  //         myLibrary[index].changeStatus();
+  //         // myLibrary[index].isRead = true;
+  //         element.style.background = '#5fa061';
+  //         element.innerHTML = 'You\'ve read it';
+  //       }
+  //     });
+  //   });
 }
 
 

@@ -6,13 +6,12 @@ function Book (author, title, pages, isRead, image = 'https://images.unsplash.co
   this.author = author;
   this.pages = pages;
   this.isRead = isRead;
-  this.changeStatus = function(){
-    if(isRead){
-      this.isRead = false;
-    }else{
-      this.isRead = true;
-    }
-  }
+  this.changeStatus = () => this.isRead = this.isRead ? false : true
+    // if(!isRead){
+    //   this.isRead = true;
+    // }else{
+    //   this.isRead = false;
+    // }
 }
 
 document.getElementById('add-book').addEventListener('click', addBook);

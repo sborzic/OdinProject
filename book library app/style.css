@@ -135,7 +135,7 @@ form>button {
 }
 
 #add-book:hover{
-  transition-property: background;
+  transition-property: all;
   transition-duration: 200ms;
   background: #605fa0;
   transform: scale(1.1);

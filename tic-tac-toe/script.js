@@ -1,8 +1,11 @@
 const UIcontroller = (function(){
   //update field
-  const fieldClicked = function(event){
-    event.target.classList.toggle('clicked');
-    // console.log('works')
+  const fieldClicked = function(event, currPlayer){
+    if(currPlayer === 'player1'){
+      event.target.classList.add('playerOne');
+    }else {
+      event.target.classList.add('playerTwo');
+    }
   }
 
   return {
@@ -12,25 +15,35 @@ const UIcontroller = (function(){
 
 
 const gameController = (function(UIctrl){
-  let player1 = true;
-  let player2 = false;
+  //set up players
+  const player = (name, isPlaying)=>{
+    const score = 0;
+    return {name, isPlaying, score};
+  }  
+  const player1 = player('player1', true);
+  const player2 = player('player2', false);
+  
 
-  const turnPlayed = function(event){
+  const playTurn = function(event){
+
+    let currPlayer = player1.isPlaying ? 'player1' : 'player2';
+
     //update field
-    UIctrl.fieldClicked(event);
+    UIctrl.fieldClicked(event, currPlayer);
+    event.target.removeEventListener('click', playTurn);
 
     //toggle player
-    player1 = !player1;
-    player2 = !player2;
-    console.log(`player 1: ${player1}, player2: ${player2}`);
+    player1.isPlaying = !player1.isPlaying;
+    player2.isPlaying = !player2.isPlaying;
     
     //score tracker
   }
   
   // add listeners
-  let fields = Array.from(document.getElementsByClassName('field'));
-  fields.forEach(field=>{
-    field.addEventListener('click', turnPlayed);
+  const boardFields = Array.from(document.getElementsByClassName('field'));
+
+  boardFields.forEach(field=>{
+    field.addEventListener('click', playTurn);
   });  
 
 })(UIcontroller);
